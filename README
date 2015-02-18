@@ -1,1 +1,15 @@
-This is a sample application to store to do list using the mean stack
+This is a sample application to store to do list using the mean(mongoDb, Express, AngularJS and Node.js) technology stack.
+This is a single page application where you can add the things you want to complete and maintain a ToDo list.
+Once a given task is complete, you can strike it off by clicking on the mark as complete button againt the task.
+This will delete the task from your list leaving only the undone tasks.
+
+To run this application, download the project folder from https://github.com/sshubha/meanstack
+navigate to the meanstack folder after download.
+run the command:
+>> npm install
+
+After the successfull completion of the above command, run the following command:
+>> node server.js
+
+Once you get the message that the server is successfull started on port 8080,
+access the application using the url: http://localhost:8080/
