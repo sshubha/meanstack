@@ -1,4 +1,4 @@
-var scotchTodo = angular.module('scotchTodo',[]);
+var toDoApp = angular.module('myTodoApp',[]);
 
 function mainController($scope, $http){
 	$scope.formData = {};
@@ -11,7 +11,7 @@ function mainController($scope, $http){
 		.error(function(data){
 			console.log('Error:' + data);
 		});
-	$scope.createTodo = function(){
+	$scope.createItem = function(){
 		$http.post('/api/todos', $scope.formData)
 		.success(function(data){
 			$scope.formData = {};
@@ -22,7 +22,7 @@ function mainController($scope, $http){
 			console.log('Error: ' + data)
 		});
 	};
-	$scope.deleteTodo = function(id){
+	$scope.markComplete = function(id){
 		$http.delete('/api/todos/'+id)
 		.success(function(data){
 			$scope.todos = data;

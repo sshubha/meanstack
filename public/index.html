@@ -1,16 +1,31 @@
 <!doctype html>
-<html ng-app="scotchTodo">
+<html ng-app="myTodoApp">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Node/Angular Todo App</title>
+	<title>MEAN ToDo Sample application</title>
 
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<style>
 		html{overflow-y:scroll;}
 		body{padding-top:50px;}
+		h1.heading{
+			background:coral;
+			min-width: 80%;
+			padding: 10px 0px;
+		}
 		#todo-list{margin-bottom:30px;}
+		label button{margin-left:10px;}
+		label{
+			padding: 10px;
+			margin: auto 0px;
+			min-width: 60%;
+		}
+		label li{min-width: 60%;}
+	.task ol{
+			list-style-position: inside;
+		}
 	</style>
 
 	<script src="./js/jquery.min.js"></script>
@@ -20,25 +35,39 @@
 
 <body ng-controller="mainController">
 	<div class="container">
-		<div class="jumbotron text-center">
-			<h1>To do application<span class="label label-info">{{ todos.length }}</span></h1>
+		<div class="text-center">
+			<h1 class="heading">MEAN Stack Todo Application</h1>
 		</div>
+		<br/>
+		<br/>
+		<div class="text-center">
+			<!--<p>This application helps you maintain a list of tasks to be completed by adding them to the list. You can also delete the tasks which have been completed by marking them as completed.</p>-->
+			<h3>Your current Todo list has <span class="label label-info">{{ todos.length }}</span> pending items</h3>
+		</div>
+
 		<div id="todo-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
-				<div class="checkbox" ng-repeat="todo in todos">
+			<div class="task">
+			<center>
+			<ol>
+				<div ng-repeat="todo in todos">
+				
+				
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)">{{ todo.text }}
+						<li>{{ todo.text }}<button type="submit" class="btn" ng-click="markComplete(todo._id)">Mark as complete</button></li>
 					</label>
+				
 				</div>
+			</ol>
+			</center>
 			</div>
 	</div>
 	<div id="todo-form" class="row">
 		<div class="col-sm-8 col-sm-offset-2 text-center">
 			<form>
 				<div class="form-group">
-					<input type="text" class="form-control input-lg text-center" placeholder="I want to complete my test" ng-model="formData.text">
+					<input type="text" class="form-control input-lg text-center" placeholder="Enter new task here and hit Add item button" ng-model="formData.text">
 				</div>
-				<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+				<button type="submit" class="btn btn-primary" ng-click="createItem()">Add item</button>
 			</form>
 		</div>
 	</div>
