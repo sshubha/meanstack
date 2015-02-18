@@ -1,6 +1,7 @@
 {
 	"name" : "mean-todo-app",
 	"version" : "0.0.0",
+	"private" : true,
 	"description" : "Todo application using mean stack",
 	"main" : "server.js",
 	"author" : "Shubha",
